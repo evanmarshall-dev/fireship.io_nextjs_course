@@ -10,10 +10,9 @@
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md,html,css}": [
-      "eslint --fix",
-      "git add",
-      "prettier --write"
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write",
+      "eslint --max-warnings 0 ."
     ]
   },
   "dependencies": {
