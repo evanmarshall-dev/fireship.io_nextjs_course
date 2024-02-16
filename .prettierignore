@@ -1,4 +1,8 @@
 /**/*.*
+!package.json
+!README.md
+!.prettierrc.json
+!.eslintrc.json
 !app/**/*.ts
 !app/**/*.tsx
 !components/**/*.ts
