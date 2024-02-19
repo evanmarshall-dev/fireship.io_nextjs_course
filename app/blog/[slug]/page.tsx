@@ -15,6 +15,21 @@ interface Props {
   params: { slug: string };
 }
 
+// * If you want to have several pages (i.e. blog posts), which do not get updated often and you want to statically generate said pages in advanced allowing them to be cached on a CDN for very fast page loads. This is more efficient than dynamic SSR, but we need to figure out how to generate the dynamic pages (which could be 10000 blog posts that we do not want to hardcode).
+// * Solution is to export a function called generateStaticParams. This tells NextJS how to find the dynamic data so that it can be rendered in advance.
+// It is good to use this with the above revalidate option for if the data ever does change. This is called INCREMENTAL STATIC GENERATION (ISR).
+export async function generateStaticParams() {
+  // Fetch the entire list of posts.
+  const posts: Post[] = await fetch('http://localhost:3000/api/content').then(
+    (res) => res.json(),
+  );
+
+  // Returns an object with the parameters we want to render in advanced. This one will be an object with the slug values for the posts.
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
 // Export the default server component and make sure it is an async function. The difference with this component is that it has params as a prop.
 // If you want to opt out of typescript you can use the any prop below after {params}: but that is generally not a good practice.
 export default async function BlogPostPage({ params }: Props) {
