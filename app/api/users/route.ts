@@ -11,3 +11,5 @@ export async function GET(request: Request) {
   // Use next response to return the users object as JSON.
   return NextResponse.json(users);
 }
+
+// * With NextJS 13 you do not need API routes to fetch data. You can access prisma directly from a server component as opposed to making a fetch call to an API route.

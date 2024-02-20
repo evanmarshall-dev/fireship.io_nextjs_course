@@ -1,6 +1,6 @@
 // import Image from "next/image";
 import { getServerSession } from 'next-auth';
-import { redirect } from 'next/navigation';
+// ? import { redirect } from 'next/navigation';
 import styles from './page.module.css';
 
 import type { Metadata } from 'next';
@@ -17,9 +17,9 @@ export default async function Home() {
 
   if (!session) {
     // One option is to return some UI stating that you must be logged in. This will link back to the previous page or sign-in page.
-    // ? return <p>You must be signed in...</p>;
+    return <p>You must be signed in...</p>;
     // The other option is to use next navigation to redirect to the sign in page automatically. It has a redirect method which takes the user to the page specified.
-    redirect('/api/auth/signin');
+    // ? redirect('/api/auth/signin');
   }
 
   return (
