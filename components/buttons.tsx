@@ -21,7 +21,7 @@ export function SignInButton() {
   // * To use remote images with next image you need to update your next.config.js to provide the remote URL for those images.
   if (status === 'authenticated') {
     return (
-      <Link href={`/dashboard`}>
+      <Link href={'/dashboard'}>
         <Image
           src={session.user?.image ?? '/mememan.webp'}
           width={32}
