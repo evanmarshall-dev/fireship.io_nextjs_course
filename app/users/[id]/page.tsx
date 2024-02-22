@@ -2,6 +2,7 @@
 import { prisma } from '@/lib/prisma';
 import { Metadata } from 'next';
 import Image from 'next/image';
+import FollowButton from '@/components/FollowButton/FollowButton';
 
 interface Props {
   params: {
@@ -37,6 +38,9 @@ export default async function UserProfile({ params }: Props) {
 
       <h3>Bio</h3>
       <p>{bio}</p>
+
+      {/* Now we take the follow button and use as a template in the users ID page. Typescript might trigger an error since this is a server component, but we will suppress that with the below comment. */}
+      <FollowButton targetUserId={params.id} />
     </div>
   );
 }
