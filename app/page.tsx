@@ -1,5 +1,6 @@
 // import Image from "next/image";
 import { getServerSession } from 'next-auth';
+import { authOptions } from './api/auth/[...nextauth]/route';
 import { redirect } from 'next/navigation';
 import styles from './page.module.css';
 
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   // Get server session from next auth will prevent users from navigating to certain routes/pages unless they are logged in.
-  const session = await getServerSession();
+  const session = await getServerSession(authOptions);
 
   if (!session) {
     // One option is to return some UI stating that you must be logged in. This will link back to the previous page or sign-in page.
