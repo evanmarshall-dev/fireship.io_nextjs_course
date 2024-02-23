@@ -1,6 +1,7 @@
 'use client';
 
-import { experimental_useOptimistic as useOptimistic } from 'react';
+import { useOptimistic } from 'react';
+
 import { like, dislike } from './actions';
 
 export default function Likes({ likeCount, id }: any) {
